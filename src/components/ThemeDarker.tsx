@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 import HandleSVG from './HandleSVG';
@@ -6,10 +5,6 @@ import HandleSVG from './HandleSVG';
 export enum Theme {
   LIGHT,
   DARK,
-}
-
-interface IThemeDarkerProps {
-  size?: number;
 }
 
 //#region ToggleBtn styled component
@@ -42,13 +37,11 @@ export const ButtonFrame = styled.div<{
 `;
 //#endregion
 
-export function ThemeDarker({ size = 50 }: IThemeDarkerProps) {
-  const [theme, setTheme] = useState(Theme.LIGHT);
-
-  const onClick = () => {
-    setTheme(theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT);
-  };
-
+export function ThemeDarker(
+  theme: Theme = Theme.LIGHT,
+  toggleTheme: () => void,
+  size = 50,
+) {
   const styledConfig = {
     theme: theme,
     size: size,
@@ -58,7 +51,7 @@ export function ThemeDarker({ size = 50 }: IThemeDarkerProps) {
     <ButtonFrame config={styledConfig}>
       <HandleFrame
         layout
-        onClick={onClick}
+        onClick={toggleTheme}
         animate={{ rotate: theme === Theme.LIGHT ? 0 : 180 }}
         transition={{
           default: { duration: 0.7, type: 'spring', bounce: 0.4 },
