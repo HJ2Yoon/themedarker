@@ -37,11 +37,16 @@ export const ButtonFrame = styled.div<{
 `;
 //#endregion
 
-export function ThemeDarker(
-  theme: Theme = Theme.LIGHT,
-  toggleTheme: () => void,
+interface IThemeDarkerProps {
+  theme: Theme;
+  toggleTheme: () => void;
+  size?: number;
+}
+export function ThemeDarker({
+  theme,
+  toggleTheme,
   size = 50,
-) {
+}: IThemeDarkerProps) {
   const styledConfig = {
     theme: theme,
     size: size,
