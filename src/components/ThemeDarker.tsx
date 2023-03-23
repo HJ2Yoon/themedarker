@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 import HandleSVG from './HandleSVG';
+import SwitchBg from './SwitchBg';
 
 export enum Theme {
   LIGHT,
@@ -16,6 +17,7 @@ export const ButtonFrame = styled.div<{
   --size: ${props => props.config.size}px;
 
   display: flex;
+  position: relative;
   ${props =>
     props.config.theme === Theme.LIGHT
       ? css`
@@ -65,6 +67,7 @@ export function ThemeDarker({
       >
         <HandleSVG config={styledConfig} />
       </HandleFrame>
+      <SwitchBg config={styledConfig} />
     </ButtonFrame>
   );
 }
