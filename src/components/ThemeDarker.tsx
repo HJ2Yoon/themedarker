@@ -31,6 +31,7 @@ export const ButtonFrame = styled.div<{
   align-items: center;
   width: calc(var(--size) * 2);
   border-radius: calc((var(--size) + var(--size) * 0.28) / 2);
+  overflow: hidden;
 
   ${HandleFrame} {
     width: var(--size);
